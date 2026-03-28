@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PsychoTest — Mini-Game Intermezzo</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    .game-header {
+      width: 100%;
+      max-width: 700px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+
+    .intermezzo-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 1rem;
+      border-radius: 99px;
+      background: linear-gradient(135deg, rgba(249,115,22,0.25), rgba(251,191,36,0.2));
+      border: 1.5px solid var(--orange);
+      color: var(--orange);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    .game-instructions {
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      max-width: 500px;
+      line-height: 1.6;
+    }
+
+    /* Game-end overlay */
+    #game-end-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15,10,30,0.92);
+      backdrop-filter: blur(16px);
+      z-index: 150;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      text-align: center;
+      padding: 2rem;
+      transition: opacity 0.4s ease;
+    }
+
+    #game-end-overlay.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .game-end-icon {
+      font-size: 5rem;
+      filter: drop-shadow(0 0 24px var(--orange));
+      animation: floatBob 2s ease-in-out infinite;
+    }
+
+    .game-end-title {
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--yellow), var(--orange), var(--pink));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+</head>
+<body data-page="game">
+
+  <!-- Particles -->
+  <div class="particles-container" aria-hidden="true"></div>
+
+  <!-- Game-end overlay (hidden initially) -->
+  <div id="game-end-overlay" class="hidden" aria-live="polite">
+    <div class="game-end-icon">
+      <i class="fas fa-trophy icon-yellow"></i>
+    </div>
+    <h2 class="game-end-title">Permainan Selesai!</h2>
+    <p id="game-end-msg" style="color:var(--text-secondary);font-size:1rem;max-width:400px;line-height:1.7"></p>
+    <button class="btn btn-primary" onclick="window.location.href='assessment-2.html'">
+      Lanjut ke Pertanyaan Terakhir
+      <i class="fas fa-arrow-right"></i>
+    </button>
+  </div>
+
+  <div class="page-wrapper" style="justify-content:flex-start;padding-top:2rem;gap:1rem">
+
+    <!-- Header -->
+    <div class="game-header animate__animated animate__fadeInDown">
+      <div>
+        <div style="font-size:0.8rem;color:var(--text-secondary);font-weight:600;letter-spacing:0.05em">
+          INTERMEZZO
+        </div>
+        <h2 class="section-title" style="margin:0;font-size:1.3rem;text-align:left">
+          <i class="fas fa-bolt" style="margin-right:0.4rem;color:var(--yellow)"></i>
+          Asosiasi Intuitif
+        </h2>
+      </div>
+      <span class="intermezzo-badge">
+        <i class="fas fa-gamepad"></i> MINI-GAME
+      </span>
+    </div>
+
+    <!-- Step indicators -->
+    <div class="step-indicators animate__animated animate__fadeIn">
+      <div class="step-dot done"   title="Mulai"></div>
+      <div class="step-line"></div>
+      <div class="step-dot done"   title="Kuesioner 1"></div>
+      <div class="step-line"></div>
+      <div class="step-dot active" title="Mini-Game"></div>
+      <div class="step-line"></div>
+      <div class="step-dot"        title="Kuesioner 2"></div>
+      <div class="step-line"></div>
+      <div class="step-dot"        title="Hasil"></div>
+    </div>
+
+    <div class="game-wrapper">
+
+      <!-- Instructions -->
+      <p class="game-instructions animate__animated animate__fadeIn">
+        <i class="fas fa-info-circle" style="color:var(--blue-light);margin-right:0.3rem"></i>
+        Lihat kata di bawah, lalu pilih asosiasi pertama yang terlintas di pikiranmu.
+        <strong style="color:var(--yellow)"> Jangan berpikir terlalu lama!</strong>
+      </p>
+
+      <!-- Timer + Round Info Row -->
+      <div style="display:flex;align-items:center;justify-content:space-between;width:100%">
+        <!-- Round info -->
+        <div class="round-info">
+          <span id="round-label">Ronde 1 / 5</span>
+          <div class="round-dots" id="round-dots"></div>
+        </div>
+
+        <!-- Timer Ring -->
+        <div class="timer-wrapper" aria-label="Sisa waktu">
+          <svg class="timer-ring" viewBox="0 0 100 100">
+            <circle class="timer-ring-track"    cx="50" cy="50" r="45" />
+            <circle class="timer-ring-progress" id="timer-ring-progress" cx="50" cy="50" r="45" />
+          </svg>
+          <div class="timer-text" id="timer-text" aria-live="polite">30</div>
+        </div>
+      </div>
+
+      <!-- Stimulus Display -->
+      <div class="stimulus-display animate__animated animate__fadeIn">
+        <div class="stimulus-word" id="stimulus-word">…</div>
+        <div class="stimulus-hint">
+          <i class="fas fa-hand-pointer" style="margin-right:0.3rem"></i>
+          Apa yang langsung terlintas di pikiranmu?
+        </div>
+      </div>
+
+      <!-- Options -->
+      <div class="game-options" id="game-options-container">
+        <!-- Filled by JS -->
+      </div>
+
+    </div><!-- /.game-wrapper -->
+
+  </div><!-- /.page-wrapper -->
+
+  <script src="js/main.js"></script>
+</body>
+</html>

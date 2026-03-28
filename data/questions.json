@@ -1,0 +1,222 @@
+{
+  "part1": [
+    {
+      "id": 1,
+      "text": "Saat liburan ideal, kamu lebih suka...",
+      "icon": "fa-umbrella-beach",
+      "options": [
+        {
+          "text": "Pesta besar dengan banyak teman",
+          "icon": "fa-users",
+          "scores": { "ekstrovert": 3, "introvert": 0 }
+        },
+        {
+          "text": "Piknik tenang sendirian di alam",
+          "icon": "fa-tree",
+          "scores": { "ekstrovert": 0, "introvert": 3 }
+        },
+        {
+          "text": "Jalan-jalan seru dengan 2-3 sahabat dekat",
+          "icon": "fa-user-friends",
+          "scores": { "ekstrovert": 1, "introvert": 2 }
+        },
+        {
+          "text": "Eksplorasi kota baru yang belum pernah dikunjungi",
+          "icon": "fa-map-marked-alt",
+          "scores": { "ekstrovert": 2, "inovatif": 2 }
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "text": "Ketika menghadapi masalah besar, kamu cenderung...",
+      "icon": "fa-puzzle-piece",
+      "options": [
+        {
+          "text": "Langsung ambil keputusan berdasarkan naluri",
+          "icon": "fa-bolt",
+          "scores": { "intuitif": 3, "impulsif": 2 }
+        },
+        {
+          "text": "Buat daftar pro-kontra dulu",
+          "icon": "fa-list-ul",
+          "scores": { "analitis": 3, "stabil": 1 }
+        },
+        {
+          "text": "Tanya pendapat orang-orang terpercaya",
+          "icon": "fa-comments",
+          "scores": { "ekstrovert": 2, "stabil": 2 }
+        },
+        {
+          "text": "Riset mendalam sebelum memutuskan",
+          "icon": "fa-search",
+          "scores": { "analitis": 2, "inovatif": 1 }
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "text": "Warna yang paling merepresentasikan kepribadianmu...",
+      "icon": "fa-palette",
+      "options": [
+        {
+          "text": "Merah — Penuh semangat & berani",
+          "icon": "fa-fire",
+          "scores": { "ekstrovert": 2, "impulsif": 2 }
+        },
+        {
+          "text": "Biru — Tenang & dapat dipercaya",
+          "icon": "fa-water",
+          "scores": { "introvert": 2, "stabil": 2 }
+        },
+        {
+          "text": "Kuning — Ceria & penuh ide",
+          "icon": "fa-sun",
+          "scores": { "ekstrovert": 1, "inovatif": 3 }
+        },
+        {
+          "text": "Ungu — Misterius & kreatif",
+          "icon": "fa-magic",
+          "scores": { "introvert": 1, "inovatif": 2, "analitis": 1 }
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "text": "Di tempat kerja atau sekolah, kamu adalah...",
+      "icon": "fa-briefcase",
+      "options": [
+        {
+          "text": "Pemimpin yang suka mengorganisir semua",
+          "icon": "fa-crown",
+          "scores": { "ekstrovert": 3, "analitis": 1 }
+        },
+        {
+          "text": "Pemikir yang suka bekerja mandiri",
+          "icon": "fa-brain",
+          "scores": { "introvert": 3, "analitis": 2 }
+        },
+        {
+          "text": "Kreator yang selalu punya ide segar",
+          "icon": "fa-lightbulb",
+          "scores": { "inovatif": 3, "intuitif": 2 }
+        },
+        {
+          "text": "Penghubung yang menjaga harmoni tim",
+          "icon": "fa-handshake",
+          "scores": { "stabil": 3, "ekstrovert": 1 }
+        }
+      ]
+    }
+  ],
+  "part2": [
+    {
+      "id": 5,
+      "text": "Kamu lebih tertarik pada...",
+      "icon": "fa-star",
+      "options": [
+        {
+          "text": "Seni, musik, dan ekspresi kreatif",
+          "icon": "fa-guitar",
+          "scores": { "inovatif": 3, "intuitif": 2 }
+        },
+        {
+          "text": "Sains, data, dan fakta terverifikasi",
+          "icon": "fa-flask",
+          "scores": { "analitis": 3, "stabil": 1 }
+        },
+        {
+          "text": "Hubungan sosial dan memahami orang",
+          "icon": "fa-heart",
+          "scores": { "ekstrovert": 3, "intuitif": 1 }
+        },
+        {
+          "text": "Filosofi, pertanyaan besar tentang hidup",
+          "icon": "fa-infinity",
+          "scores": { "introvert": 2, "inovatif": 2, "analitis": 1 }
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "text": "Reaksimu saat rencana tiba-tiba berubah...",
+      "icon": "fa-random",
+      "options": [
+        {
+          "text": "Senang! Petualangan baru selalu menyenangkan",
+          "icon": "fa-smile-beam",
+          "scores": { "inovatif": 3, "impulsif": 2 }
+        },
+        {
+          "text": "Sedikit stres, butuh waktu beradaptasi",
+          "icon": "fa-clock",
+          "scores": { "stabil": 3, "analitis": 1 }
+        },
+        {
+          "text": "Langsung cari solusi alternatif",
+          "icon": "fa-redo-alt",
+          "scores": { "analitis": 2, "inovatif": 2 }
+        },
+        {
+          "text": "Ikutin aja, yang penting bersama orang tersayang",
+          "icon": "fa-people-arrows",
+          "scores": { "stabil": 2, "ekstrovert": 2 }
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "text": "Sumber energimu terbesar berasal dari...",
+      "icon": "fa-battery-full",
+      "options": [
+        {
+          "text": "Berinteraksi dan bertemu orang banyak",
+          "icon": "fa-user-plus",
+          "scores": { "ekstrovert": 3 }
+        },
+        {
+          "text": "Waktu sendiri untuk refleksi & recharge",
+          "icon": "fa-moon",
+          "scores": { "introvert": 3 }
+        },
+        {
+          "text": "Mencapai target dan menyelesaikan tantangan",
+          "icon": "fa-trophy",
+          "scores": { "analitis": 2, "impulsif": 1 }
+        },
+        {
+          "text": "Berkreasi dan menghasilkan sesuatu yang baru",
+          "icon": "fa-paint-brush",
+          "scores": { "inovatif": 3, "intuitif": 1 }
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "text": "Jika hidupmu adalah sebuah film, genrenya adalah...",
+      "icon": "fa-film",
+      "options": [
+        {
+          "text": "Action/Petualangan — Penuh aksi & kejutan",
+          "icon": "fa-fist-raised",
+          "scores": { "ekstrovert": 2, "impulsif": 3 }
+        },
+        {
+          "text": "Sci-Fi/Thriller — Penuh misteri & teknologi",
+          "icon": "fa-robot",
+          "scores": { "inovatif": 3, "analitis": 2 }
+        },
+        {
+          "text": "Drama/Romance — Penuh emosi & hubungan mendalam",
+          "icon": "fa-theater-masks",
+          "scores": { "introvert": 2, "intuitif": 3 }
+        },
+        {
+          "text": "Komedi/Feel-good — Ringan & menyenangkan",
+          "icon": "fa-laugh",
+          "scores": { "stabil": 3, "ekstrovert": 1 }
+        }
+      ]
+    }
+  ]
+}

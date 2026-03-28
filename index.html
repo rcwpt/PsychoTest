@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PsychoTest — Kenali Dirimu!</title>
+
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <!-- Central Styles -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    .badge-row {
+      display: flex;
+      justify-content: center;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+      margin: 1.2rem 0;
+    }
+    .badge {
+      padding: 0.35rem 1rem;
+      border-radius: 99px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      border: 1.5px solid;
+    }
+    .badge-q  { color: var(--purple-light); border-color: var(--purple);    background: rgba(139,92,246,0.12); }
+    .badge-g  { color: var(--orange);       border-color: var(--orange);    background: rgba(249,115,22,0.12); }
+    .badge-r  { color: var(--neon-green);   border-color: var(--neon-green);background: rgba(16,185,129,0.12); }
+
+    .stats-row {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 1.5rem 0;
+      flex-wrap: wrap;
+    }
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .stat-num {
+      font-size: 2.2rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body data-page="landing">
+
+  <!-- Particles -->
+  <div class="particles-container" aria-hidden="true"></div>
+
+  <div class="page-wrapper">
+    <div class="hero-section animate__animated animate__fadeIn">
+
+      <!-- App Logo / Icon -->
+      <div style="font-size:4rem;margin-bottom:1rem;filter:drop-shadow(0 0 24px var(--purple))">
+        <i class="fas fa-brain icon-purple"></i>
+      </div>
+
+      <!-- Animated Title -->
+      <h1 class="app-title">
+        <span id="typing-title" data-text="Kenali Dirimu Lebih Dalam"></span>
+      </h1>
+
+      <div class="divider mt-2 mb-2"></div>
+
+      <!-- Subtitle -->
+      <p class="hero-subtitle">
+        Asesmen psikologi interaktif yang akan membongkar sisi terdalam kepribadianmu. 
+        Jawab pertanyaan, mainkan mini-game seru, dan temukan siapa dirimu sebenarnya! ✨
+      </p>
+
+      <!-- Feature Badges -->
+      <div class="badge-row">
+        <span class="badge badge-q"><i class="fas fa-list-check" style="margin-right:0.3rem"></i> 8 Pertanyaan</span>
+        <span class="badge badge-g"><i class="fas fa-gamepad" style="margin-right:0.3rem"></i> Mini-Game</span>
+        <span class="badge badge-r"><i class="fas fa-chart-pie" style="margin-right:0.3rem"></i> Analisis Mendalam</span>
+      </div>
+
+      <!-- Floating Icons -->
+      <div class="hero-icons" aria-hidden="true">
+        <div class="hero-icon-item">
+          <i class="fas fa-fire icon-orange"></i>
+          <span>Semangat</span>
+        </div>
+        <div class="hero-icon-item">
+          <i class="fas fa-brain icon-purple"></i>
+          <span>Pikiran</span>
+        </div>
+        <div class="hero-icon-item">
+          <i class="fas fa-heart icon-pink"></i>
+          <span>Perasaan</span>
+        </div>
+        <div class="hero-icon-item">
+          <i class="fas fa-bolt icon-yellow"></i>
+          <span>Energi</span>
+        </div>
+        <div class="hero-icon-item">
+          <i class="fas fa-star icon-green"></i>
+          <span>Potensi</span>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-row">
+        <div class="stat-item">
+          <span class="stat-num icon-purple">~5</span>
+          <span class="stat-label">Menit</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num icon-pink">5</span>
+          <span class="stat-label">Tipe Kepribadian</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num icon-orange">100%</span>
+          <span class="stat-label">Gratis</span>
+        </div>
+      </div>
+
+      <!-- Start Button -->
+      <button id="start-btn" class="btn btn-primary btn-pulse" style="font-size:1.2rem;padding:1.1rem 3rem">
+        <i class="fas fa-play-circle"></i>
+        Mulai Sekarang
+      </button>
+
+      <p style="margin-top:1rem;font-size:0.8rem;color:var(--text-secondary)">
+        <i class="fas fa-lock" style="margin-right:0.3rem"></i>
+        Data tersimpan hanya di perangkatmu
+      </p>
+
+      <!-- Step Indicators -->
+      <div class="step-indicators mt-3" aria-label="Langkah-langkah">
+        <div class="step-dot active" title="Mulai"></div>
+        <div class="step-line"></div>
+        <div class="step-dot" title="Kuesioner 1"></div>
+        <div class="step-line"></div>
+        <div class="step-dot" title="Mini-Game"></div>
+        <div class="step-line"></div>
+        <div class="step-dot" title="Kuesioner 2"></div>
+        <div class="step-line"></div>
+        <div class="step-dot" title="Hasil"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
