@@ -1,0 +1,174 @@
+{
+  "stimuli": [
+    {
+      "word": "🔥 API",
+      "label": "Api",
+      "icon": "fa-fire",
+      "options": [
+        {
+          "text": "Kebebasan",
+          "icon": "fa-dove",
+          "scores": { "inovatif": 2, "impulsif": 1 }
+        },
+        {
+          "text": "Bahaya",
+          "icon": "fa-exclamation-triangle",
+          "scores": { "analitis": 2, "stabil": 1 }
+        }
+      ]
+    },
+    {
+      "word": "🏠 RUMAH",
+      "label": "Rumah",
+      "icon": "fa-home",
+      "options": [
+        {
+          "text": "Keamanan",
+          "icon": "fa-shield-alt",
+          "scores": { "stabil": 3, "introvert": 1 }
+        },
+        {
+          "text": "Kebosanan",
+          "icon": "fa-meh",
+          "scores": { "inovatif": 2, "ekstrovert": 2 }
+        }
+      ]
+    },
+    {
+      "word": "📚 BUKU",
+      "label": "Buku",
+      "icon": "fa-book",
+      "options": [
+        {
+          "text": "Pengetahuan",
+          "icon": "fa-graduation-cap",
+          "scores": { "analitis": 3, "introvert": 1 }
+        },
+        {
+          "text": "Kebijaksanaan",
+          "icon": "fa-feather-alt",
+          "scores": { "inovatif": 2, "intuitif": 2 }
+        }
+      ]
+    },
+    {
+      "word": "🌊 LAUT",
+      "label": "Laut",
+      "icon": "fa-water",
+      "options": [
+        {
+          "text": "Petualangan",
+          "icon": "fa-anchor",
+          "scores": { "ekstrovert": 2, "impulsif": 2 }
+        },
+        {
+          "text": "Ketenangan",
+          "icon": "fa-spa",
+          "scores": { "introvert": 3, "stabil": 1 }
+        }
+      ]
+    },
+    {
+      "word": "⚡ PETIR",
+      "label": "Petir",
+      "icon": "fa-bolt",
+      "options": [
+        {
+          "text": "Kekuatan",
+          "icon": "fa-fist-raised",
+          "scores": { "ekstrovert": 2, "impulsif": 2 }
+        },
+        {
+          "text": "Kejutan",
+          "icon": "fa-surprise",
+          "scores": { "inovatif": 2, "intuitif": 2 }
+        }
+      ]
+    },
+    {
+      "word": "🌸 BUNGA",
+      "label": "Bunga",
+      "icon": "fa-seedling",
+      "options": [
+        {
+          "text": "Keindahan",
+          "icon": "fa-heart",
+          "scores": { "intuitif": 2, "ekstrovert": 1 }
+        },
+        {
+          "text": "Kehidupan",
+          "icon": "fa-leaf",
+          "scores": { "stabil": 2, "inovatif": 1 }
+        }
+      ]
+    },
+    {
+      "word": "🌙 MALAM",
+      "label": "Malam",
+      "icon": "fa-moon",
+      "options": [
+        {
+          "text": "Misteri",
+          "icon": "fa-hat-wizard",
+          "scores": { "intuitif": 3, "introvert": 1 }
+        },
+        {
+          "text": "Istirahat",
+          "icon": "fa-bed",
+          "scores": { "stabil": 3, "analitis": 1 }
+        }
+      ]
+    },
+    {
+      "word": "🚀 ROKET",
+      "label": "Roket",
+      "icon": "fa-rocket",
+      "options": [
+        {
+          "text": "Ambisi",
+          "icon": "fa-star",
+          "scores": { "inovatif": 3, "impulsif": 1 }
+        },
+        {
+          "text": "Teknologi",
+          "icon": "fa-microchip",
+          "scores": { "analitis": 3, "inovatif": 1 }
+        }
+      ]
+    },
+    {
+      "word": "🐺 SERIGALA",
+      "label": "Serigala",
+      "icon": "fa-dog",
+      "options": [
+        {
+          "text": "Kesendirian",
+          "icon": "fa-user-slash",
+          "scores": { "introvert": 3, "analitis": 1 }
+        },
+        {
+          "text": "Kebebasan",
+          "icon": "fa-wind",
+          "scores": { "inovatif": 2, "impulsif": 2 }
+        }
+      ]
+    },
+    {
+      "word": "💡 LAMPU",
+      "label": "Lampu",
+      "icon": "fa-lightbulb",
+      "options": [
+        {
+          "text": "Inspirasi",
+          "icon": "fa-magic",
+          "scores": { "inovatif": 3, "intuitif": 1 }
+        },
+        {
+          "text": "Kejelasan",
+          "icon": "fa-eye",
+          "scores": { "analitis": 3, "stabil": 1 }
+        }
+      ]
+    }
+  ]
+}

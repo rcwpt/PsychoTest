@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PsychoTest — Hasil Kepribadianmu!</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <!-- canvas-confetti CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+  <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    .result-card {
+      width: 100%;
+      max-width: 680px;
+      text-align: center;
+    }
+
+    .game-insights {
+      width: 100%;
+      max-width: 680px;
+    }
+
+    .insight-row {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 0.7rem 1rem;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--glass-border);
+      margin-bottom: 0.6rem;
+      font-size: 0.88rem;
+    }
+
+    .insight-row i { font-size: 1.3rem; flex-shrink: 0; }
+
+    .share-row {
+      display: flex;
+      gap: 0.8rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-restart {
+      background: linear-gradient(135deg, var(--neon-green), var(--blue));
+      color: var(--bg-dark);
+    }
+
+    @keyframes resultEntrance {
+      from { opacity: 0; transform: scale(0.8) translateY(30px); }
+      to   { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    .result-card { animation: resultEntrance 0.8s cubic-bezier(0.34,1.56,0.64,1) 0.2s both; }
+  </style>
+</head>
+<body data-page="result">
+
+  <!-- Particles -->
+  <div class="particles-container" aria-hidden="true"></div>
+
+  <!-- Confetti canvas injected by confetti library -->
+
+  <div class="page-wrapper" style="justify-content:flex-start;padding-top:2rem;gap:1.5rem">
+
+    <!-- Step indicators -->
+    <div class="step-indicators animate__animated animate__fadeIn">
+      <div class="step-dot done" title="Mulai"></div>
+      <div class="step-line"></div>
+      <div class="step-dot done" title="Kuesioner 1"></div>
+      <div class="step-line"></div>
+      <div class="step-dot done" title="Mini-Game"></div>
+      <div class="step-line"></div>
+      <div class="step-dot done" title="Kuesioner 2"></div>
+      <div class="step-line"></div>
+      <div class="step-dot done active" title="Hasil" style="background:var(--yellow);box-shadow:0 0 16px var(--yellow)"></div>
+    </div>
+
+    <!-- Main Result Card -->
+    <div class="glass-card result-card">
+
+      <!-- Celebration Banner -->
+      <div style="
+          background: linear-gradient(135deg, rgba(251,191,36,0.2), rgba(249,115,22,0.15));
+          border: 1px solid rgba(251,191,36,0.4);
+          border-radius: 10px;
+          padding: 0.6rem 1rem;
+          font-size: 0.85rem;
+          color: var(--yellow);
+          font-weight: 700;
+          margin-bottom: 1.5rem;
+          letter-spacing: 0.05em;
+      ">
+        <i class="fas fa-star" style="margin-right:0.4rem"></i>
+        HASIL ANALISIS KEPRIBADIANMU
+        <i class="fas fa-star" style="margin-left:0.4rem"></i>
+      </div>
+
+      <!-- Personality Icon -->
+      <i id="result-icon" class="fas fa-brain result-icon-big icon-purple"></i>
+
+      <!-- Type Name -->
+      <h1 id="result-type-name" class="result-type-name mt-2">…</h1>
+
+      <!-- Tagline -->
+      <p id="result-tagline" class="result-tagline mt-1">…</p>
+
+      <div class="divider mt-2 mb-2"></div>
+
+      <!-- Description -->
+      <p id="result-description" class="result-description">…</p>
+
+      <!-- Trait Tags -->
+      <div id="result-traits" class="trait-tags mt-2"></div>
+
+    </div><!-- /.result-card -->
+
+    <!-- Score Breakdown -->
+    <div class="glass-card game-insights">
+      <h3 style="font-size:1rem;font-weight:800;color:var(--text-secondary);margin-bottom:1.2rem;letter-spacing:0.05em">
+        <i class="fas fa-chart-bar" style="margin-right:0.5rem;color:var(--purple-light)"></i>
+        BREAKDOWN DIMENSI KEPRIBADIAN
+      </h3>
+      <div id="score-breakdown" class="score-breakdown"></div>
+    </div>
+
+    <!-- Game Insights (rendered by JS) -->
+    <div class="glass-card game-insights" id="game-insights-card">
+      <h3 style="font-size:1rem;font-weight:800;color:var(--text-secondary);margin-bottom:1rem;letter-spacing:0.05em">
+        <i class="fas fa-gamepad" style="margin-right:0.5rem;color:var(--orange)"></i>
+        INSIGHT DARI MINI-GAME
+      </h3>
+      <div id="game-insights-content">
+        <div class="insight-row">
+          <i class="fas fa-bolt" style="color:var(--yellow)"></i>
+          <span id="speed-insight">Menganalisis pola respons...</span>
+        </div>
+        <div class="insight-row">
+          <i class="fas fa-brain" style="color:var(--purple-light)"></i>
+          <span id="choice-insight">Menganalisis pilihan asosiasi...</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="share-row animate__animated animate__fadeInUp" style="margin-bottom:2rem">
+      <button class="btn btn-restart" onclick="restartTest()">
+        <i class="fas fa-redo"></i>
+        Coba Lagi
+      </button>
+      <button class="btn btn-primary" onclick="shareResult()">
+        <i class="fas fa-share-alt"></i>
+        Bagikan Hasil
+      </button>
+    </div>
+
+  </div>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Extra result-page logic (game insights + share)
+    document.addEventListener('DOMContentLoaded', () => {
+      renderGameInsights();
+    });
+
+    function renderGameInsights() {
+      const results = JSON.parse(localStorage.getItem('psychotest_game_results') || 'null');
+      if (!results || results.length === 0) {
+        document.getElementById('game-insights-card').style.display = 'none';
+        return;
+      }
+
+      const fastCount = results.filter(r => r.isFast).length;
+      const total = results.length;
+      const avgMs = Math.round(results.reduce((s, r) => s + r.responseMs, 0) / total);
+
+      const speedEl = document.getElementById('speed-insight');
+      if (speedEl) {
+        if (fastCount >= total * 0.7) {
+          speedEl.innerHTML = `Kamu menjawab <strong style="color:var(--neon-green)">${fastCount}/${total}</strong> pertanyaan dengan sangat cepat (rata-rata ${avgMs}ms). Kamu cenderung <strong style="color:var(--yellow)">Impulsif & Intuitif</strong>!`;
+        } else if (fastCount <= total * 0.3) {
+          speedEl.innerHTML = `Kamu mempertimbangkan jawaban dengan cermat (rata-rata ${avgMs}ms). Kamu cenderung <strong style="color:var(--blue-light)">Analitis & Hati-hati</strong>!`;
+        } else {
+          speedEl.innerHTML = `Kamu menyeimbangkan antara kecepatan dan kehati-hatian (rata-rata ${avgMs}ms). Kamu <strong style="color:var(--purple-light)">fleksibel & adaptif</strong>!`;
+        }
+      }
+
+      const choiceEl = document.getElementById('choice-insight');
+      if (choiceEl && results.length > 0) {
+        const choices = results.map(r => r.choice).join(', ');
+        choiceEl.innerHTML = `Asosiasi yang kamu pilih: <strong style="color:var(--orange)">${choices}</strong>. Pilihan ini mencerminkan nilai-nilai terdalam yang kamu pegang.`;
+      }
+    }
+
+    function restartTest() {
+      const keys = ['psychotest_answers_part1','psychotest_answers_part2','psychotest_game_results','psychotest_scores','psychotest_start_time'];
+      keys.forEach(k => localStorage.removeItem(k));
+      document.body.classList.add('fade-out');
+      setTimeout(() => { window.location.href = 'index.html'; }, 350);
+    }
+
+    function shareResult() {
+      const name = document.getElementById('result-type-name')?.textContent || 'Kepribadian Unik';
+      const tagline = document.getElementById('result-tagline')?.textContent || '';
+      const text = `🧠 Hasil PsychoTest-ku: ${name} — "${tagline}" Coba juga di PsychoTest!`;
+
+      if (navigator.share) {
+        navigator.share({ title: 'PsychoTest', text }).catch(() => {});
+      } else {
+        navigator.clipboard.writeText(text).then(() => {
+          // Show toast
+          const toast = document.createElement('div');
+          toast.className = 'toast';
+          toast.innerHTML = '<i class="fas fa-check-circle" style="color:var(--neon-green);margin-right:0.4rem"></i>Teks disalin ke clipboard!';
+          document.body.appendChild(toast);
+          requestAnimationFrame(() => requestAnimationFrame(() => toast.classList.add('show')));
+          setTimeout(() => { toast.classList.remove('show'); setTimeout(() => toast.remove(), 500); }, 2500);
+        }).catch(() => {});
+      }
+    }
+  </script>
+</body>
+</html>
